@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'rm trufflehog || true'
         sh 'sudo docker run  --log-driver json-file --log-opt max-size=1g --log-opt max-file=2 gesellix/trufflehog https://github.com/dhananjaybhakte/Devsecops.git > trufflehog'
-        sh 'cat trufflehog'
+        sh 'sudo sudo cat /var/lib/docker/overlay2/d71405f88688ad8caa76eecc4c2fbda9ddb3f5e3016030ef1ef9fed2d1cc6aa8/diff/usr/local/bin/trufflehog'
      }
     }
     
