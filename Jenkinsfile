@@ -15,7 +15,7 @@ pipeline {
     stage ('Check-Git-Secrets') {
       steps {
         sh 'rm trufflehog || true'
-        sh 'sudo docker run  --json gesellix/trufflehog https://github.com/dhananjaybhakte/Devsecops.git > trufflehog'
+        sh 'sudo docker run  --log-driver json-file --log-opt max-size=1g --log-opt max-file=2 gesellix/trufflehog https://github.com/dhananjaybhakte/Devsecops.git > trufflehog'
         sh 'cat trufflehog'
      }
     }
