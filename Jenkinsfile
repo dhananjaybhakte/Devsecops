@@ -19,7 +19,14 @@ pipeline {
         sh 'sudo cat /var/lib/docker/overlay2/d71405f88688ad8caa76eecc4c2fbda9ddb3f5e3016030ef1ef9fed2d1cc6aa8/diff/usr/local/bin/trufflehog'
      }
     }
-    
+    stage ('Check-Git_Secrets') {
+      steps {
+        sh 'rm trufflehog || true'
+        sh 'wget "https://github.com/dhananjaybhakte/Devsecops/blob/master/owasp-dependency-check.sh"'
+        sh 'chmod +x owasp-dependency-check.sh'
+        sh 'bash owasp-dependency-check.sh'
+      }
+    }
     stage ('Build') {
       steps {
       sh 'mvn clean package'
