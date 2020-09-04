@@ -24,7 +24,7 @@ pipeline {
         sh 'rm trufflehog || true'
         sh 'sudo wget "https://github.com/dhananjaybhakte/Devsecops/blob/master/owasp-dependency-check.sh"'
         sh 'chmod +x owasp-dependency-check.sh'
-        sh 'bash owasp-dependency-check.sh'
+        sh 'sudo bash owasp-dependency-check.sh'
       }
     }
     stage ('Build') {
