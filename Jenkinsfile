@@ -24,7 +24,7 @@ pipeline {
         sh 'rm trufflehog || true'
         sh 'sudo wget "https://github.com/dhananjaybhakte/Devsecops/blob/master/owasp-dependency-check.sh"'
         sh 'chmod +x owasp-dependency-check.sh'
-        sh 'sudo bash /var/lib/jenkins/workspaceevsecops/owasp-dependency-check.sh'
+        sh 'sudo bash /var/lib/jenkins/workspace/Devsecops/owasp-dependency-check.sh'
         sh 'sudo cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
       }
     }
