@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'rm trufflehog || true'
         sh 'sudo docker run  --log-driver json-file --log-opt max-size=1g --log-opt max-file=2 gesellix/trufflehog https://github.com/dhananjaybhakte/Devsecops.git > trufflehog'
-        sh 'sudo cat /var/lib/jenkins/workspace/Devsecopsnew'
+        sh 'sudo cat /var/lib/jenkins/workspace/Devsecopsnew/trufflehog'
      }
     }
     stage ('Source Composition Analysis') {
