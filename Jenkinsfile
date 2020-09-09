@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'rm trufflehog || true'
         sh 'sudo docker run  --log-driver json-file --log-opt max-size=1g --log-opt max-file=2 gesellix/trufflehog https://github.com/dhananjaybhakte/Devsecops.git > trufflehog'
-        sh 'sudo cat /var/lib/jenkins/workspace/Devsecops/trufflehog'
+        sh 'sudo cat /var/lib/jenkins/workspace/Devsecopsnew'
      }
     }
     stage ('Source Composition Analysis') {
@@ -24,7 +24,7 @@ pipeline {
         sh 'rm trufflehog || true'
         sh 'sudo wget "https://github.com/dhananjaybhakte/Devsecops/blob/master/owasp-dependency-check.sh"'
         sh 'sudo chmod +x owasp-dependency-check.sh'
-        sh 'sudo bash /var/lib/jenkins/workspace/Devsecops/owasp-dependency-check.sh'
+        sh 'sudo bash /var/lib/jenkins/workspace/Devsecopsnew/owasp-dependency-check.sh'
         sh 'sudo cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
       }
     }
