@@ -22,7 +22,7 @@ pipeline {
     stage ('Source Composition Analysis') {
       steps {
         sh 'rm trufflehog || true'
-        
+        sh 'sudo wget "https://github.com/dhananjaybhakte/Devsecops/blob/master/owasp-dependency-check.sh"'
         sh 'sudo chmod +x /var/lib/jenkins/workspace/Devsecopsnew/owasp-dependency-check.sh'
         sh 'sudo bash /var/lib/jenkins/workspace/Devsecopsnew/owasp-dependency-check.sh'
         sh 'sudo cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
